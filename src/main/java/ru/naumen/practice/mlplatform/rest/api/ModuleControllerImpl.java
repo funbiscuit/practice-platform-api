@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,6 +32,11 @@ public class ModuleControllerImpl {
                         m.metadata()
                 ))
                 .toList();
+    }
+
+    @GetMapping("/debug")
+    public Collection<ModuleObj> getAllDebug() {
+        return modules.values();
     }
 
     @ResponseStatus(value = HttpStatus.CREATED)
